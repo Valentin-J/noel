@@ -6,8 +6,8 @@
       :src="require('/public/images/merry_christmas.png')"
       @click="questions()"
       class="animate__animated animate__fadeIn animate__zoomIn"
-      max-height="400"
-      max-width="600"
+      max-height="300"
+      max-width="500"
     ></v-img>
   </div>
 </template>

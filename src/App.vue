@@ -19,6 +19,10 @@ export default class App extends Vue {
     maxSize: 40,
     speed: 1.5,
   });
+
+  public created() {
+    document.title = "Joyeux Noël";
+  }
 }
 </script>
 
