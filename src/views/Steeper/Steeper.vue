@@ -59,7 +59,7 @@ export default class Steeper extends Vue {
   stepperItems = [
     {
       question: "Intro",
-      response:
+      reponse:
         "Bonjour ! Un cadeau ça ce mérite non ? Pour le mériéter tu dois répondre à ces 8 questions ! Bonne chance :D",
       step: 1,
     },
@@ -82,7 +82,7 @@ export default class Steeper extends Vue {
   @Watch("e1")
   e1Watcher(): void {
     if (this.e1 > this.stepperHeader.length) {
-      this.$router.push("Login");
+      this.$router.push("Reponse");
     }
   }
 }

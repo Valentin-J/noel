@@ -11,7 +11,7 @@
       <v-card-title>{{ content.question }}</v-card-title>
 
       <v-card-text v-if="intro">
-        {{ content.response }}
+        {{ content.reponse }}
       </v-card-text>
 
       <validation-observer ref="observer" v-slot="{ invalid }" v-if="!intro">
