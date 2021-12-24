@@ -1,15 +1,25 @@
 <template>
   <v-app>
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { Vue, Component } from "vue-property-decorator";
+import Snowflakes from "magic-snowflakes";
 
-export default Vue.extend({
-  name: 'App',
-});
+@Component
+export default class App extends Vue {
+  snow = new Snowflakes();
+}
 </script>
+
+<style>
+#app {
+  background: url("../public/images/low_poly_christmas.png")
+    no-repeat center center fixed !important;
+  background-size: cover;
+}
+</style>
