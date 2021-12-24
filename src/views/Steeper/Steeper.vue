@@ -1,31 +1,33 @@
 <template>
-  <v-stepper v-model="e1">
-    <v-stepper-header>
-      <template v-for="(item, i) in stepperHeader">
-        <v-stepper-step
-          :key="i"
-          :complete="e1 > item.complete"
-          :step="item.step"
-        >
-          {{ item.name }}
-        </v-stepper-step>
+  <div class="d-flex justify-center align-center" style="height: 100vh">
+    <v-stepper v-model="e1">
+      <v-stepper-header>
+        <template v-for="(item, i) in stepperHeader">
+          <v-stepper-step
+            :key="i"
+            :complete="e1 > item.complete"
+            :step="item.step"
+          >
+            {{ item.name }}
+          </v-stepper-step>
 
-        <v-divider
-          v-if="item.step < stepperHeader.length"
+          <v-divider
+            v-if="item.step < stepperHeader.length"
+            :key="i + stepperHeader.length"
+          ></v-divider>
+        </template>
+      </v-stepper-header>
+
+      <v-stepper-items>
+        <SteeperContent
+          v-for="(item, i) in stepperItems"
           :key="i + stepperHeader.length"
-        ></v-divider>
-      </template>
-    </v-stepper-header>
-
-    <v-stepper-items>
-      <SteeperContent
-        v-for="(item, i) in stepperItems"
-        :key="i + stepperHeader.length"
-        :content="item"
-        @continuer="e1++"
-      ></SteeperContent>
-    </v-stepper-items>
-  </v-stepper>
+          :content="item"
+          @continuer="e1++"
+        ></SteeperContent>
+      </v-stepper-items>
+    </v-stepper>
+  </div>
 </template>
 
 <script lang="ts">
@@ -55,7 +57,12 @@ export default class Steeper extends Vue {
   ];
 
   stepperItems = [
-    { question: "Intro", response: "Bonjour ! Un cadeau ça ce mérite non ? Pour le mériéter tu dois répondre à ces 8 questions ! Bonne chance :D", step: 1 },
+    {
+      question: "Intro",
+      response:
+        "Bonjour ! Un cadeau ça ce mérite non ? Pour le mériéter tu dois répondre à ces 8 questions ! Bonne chance :D",
+      step: 1,
+    },
     { question: "Test1 ?", reponse: "51", step: 2 },
     { question: "Test2 ?", reponse: "30", step: 3 },
     { question: "Test3 ?", reponse: "2.624", step: 4 },
@@ -64,7 +71,12 @@ export default class Steeper extends Vue {
     { question: "Test6 ?", reponse: "7", step: 7 },
     { question: "Test7 ?", reponse: "28.65", step: 8 },
     { question: "Test8 ?", reponse: "W", step: 9 },
-    { question: "Fin", reponse: "Félicitations ! Tu a répondu à toutes les questions ! Les réponses de ces questions sont en fait des coordonnées GPS ! Clique sur continuer pour connaître la destination", step: 10 },
+    {
+      question: "Fin",
+      reponse:
+        "Félicitations ! Tu a répondu à toutes les questions ! Les réponses de ces questions sont en fait des coordonnées GPS ! Clique sur continuer pour connaître la destination",
+      step: 10,
+    },
   ];
 
   @Watch("e1")

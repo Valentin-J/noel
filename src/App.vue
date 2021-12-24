@@ -23,9 +23,9 @@ export default class App extends Vue {
 </script>
 
 <style>
-#app {
+/* #app {
   background: url("../public/images/low_poly_christmas.png") no-repeat center
     center fixed !important;
   background-size: cover;
-}
+} */
 </style>
